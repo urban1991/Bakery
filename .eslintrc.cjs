@@ -2,6 +2,7 @@
 const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
+    "ecmaVersion": 2021,
     project: true,
   },
   plugins: ["@typescript-eslint"],

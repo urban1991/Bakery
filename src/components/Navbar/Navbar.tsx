@@ -1,33 +1,47 @@
 import React from "react";
 import Image from "next/image";
-import {Oswald} from "next/font/google";
 
-const oswald = Oswald({
-    subsets: ["latin-ext"],
-    variable: "--font-oswald",
-    weight: ["400", "500", "700"]
-})
+import navBackground from "$/public/images/navbar_background.jpg";
+import Link from "next/link";
+import {Divider} from "$/components/Divider";
 
 const Navbar = () => {
+
     return (
-        <nav className="w-72 h-full bg-amber-800 flex flex-col items-center">
-            <div className="flex flex-col mt-8 items-center">
+        <nav className="w-72 h-full flex flex-col items-center relative bg-black">
+            <Image
+                src={navBackground}
+                alt="Bakery navbar background"
+                placeholder="blur"
+                quality={100}
+                fill
+                style={{
+                    objectFit: 'cover',
+                    filter: "blur(2px) opacity(0.6)",
+                }}
+            />
+            <div className="flex flex-col mt-8 items-center relative">
                 <Image src="/images/bakery-logo.svg" alt="Piekarnia logo" width={200} height={200} priority />
-                <h1 className={`${oswald.variable} font-sans font-medium text-lg mt-4`}>PIEKARNIA BIEŻYŃSKI</h1>
-                <h3>slogan</h3>
+                <h1 className={`font-oswald font-medium mt-2 text-3xl text-white`}>PIEKARNIA BIEŻYŃSKI</h1>
+                <h3 className={`font-greatVibes text-3xl mt-4 text-white`}>Smak tradycji</h3>
             </div>
-            <hr />
-            <div>
+            <Divider className="z-10 mt-2" />
+            <div className="flex relative mt-4 w-full bg-amber-300 ">
                 <ul>
-                    <li>Home</li>
-                    <li>Products</li>
-                    <li>Gallery</li>
-                    <li>Contact</li>
+                    <li>
+                        <Link href="/">Strona główna</Link>
+                    </li>
+                    <li>O nas</li>
+                    <li>Produkty</li>
+                    <li>Placówki</li>
+                    <li>Galeria</li>
+                    <li>Kontakt</li>
                 </ul>
             </div>
-            <hr />
+            {/*<hr />*/}
 
             <div>
+
                 social media icons
             </div>
         </nav>
